@@ -1,0 +1,12 @@
+<%- include('partials/header.ejs') %>
+<div class="header_container">
+    <h1>Kitabı Sil</h1>
+</div>
+<div class="delete_container">
+    <h2><%= book.author %> - <%= book.title %></h2>
+    <p>Kitabı silmek istediğinize emin misiniz ?</p>
+    <form action="/delete/<%= book.id %>" method="post">
+        <button type="submit">Sil</button>
+    </form>
+</div>
+<%- include('partials/footer.ejs') %>

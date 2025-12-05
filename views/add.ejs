@@ -1,0 +1,23 @@
+<%- include('partials/header.ejs') %>
+<div class="header_container">
+    <h1>Yeni Kitap Ekle</h1>
+</div>
+<hr>
+<div class="form_container">
+    <form action="/add" method="post">
+        <label>Kitap Adı :</label>
+        <input type="text" name="title" required>
+        <label>Yazar :</label>
+        <input type="text" name="author" required>
+        <label>ISBN :</label>
+        <input type="text" name="isbn" placeholder="ör: 9780140449266" required>
+        <label>Okunma Tarihi :</label>
+        <input type="number" name="date_read" required>
+        <label>Derece : </label>
+        <input type="number" name="rate" required>
+        <label>Özet :</label>
+        <textarea name="review" required></textarea>
+        <button type="submit">Kaydet</button>
+    </form>
+</div>
+<%- include('partials/footer.ejs') %>

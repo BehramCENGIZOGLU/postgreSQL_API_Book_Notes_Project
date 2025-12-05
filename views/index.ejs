@@ -1,0 +1,28 @@
+<%- include('partials/header.ejs') %>
+    <button onclick="window.location='/add'" class="btn_add">Yeni Kitap Ekle</button>
+    <div class="header_container">
+        <h1>Behram CENGİZOĞLU</h1>
+        <h2>Okuduğum Kitaplar</h2>
+        <h3>Her biri için küçük bir özet ama ayrıntılı notlar . Yerel kütüphanenizden veya başka bir yerden bulmak için ISBN numarasını kullanın. Daha fazla okudukça bu sayfa sürekli güncellenecek , bu yüzden birkaç ay sonra tekrar bakmak isterseniz yer imlerinize ekleyin.</h3>
+    </div>
+    <hr>
+    <div class="body_container">
+        <% if(books.length === 0){ %>
+            <p>Henüz gösterilecek bir kitap yoktur.</p>
+        <%}%>
+        <% books.forEach( book => { %>
+            <section>
+                <% if (book.cover) { %>
+                    <img src="<%= book.cover %>" alt="Kapak resimi">
+                <% } %>
+                <h2><%= book.author %> - <%= book.title %></h2>
+                <h4>Okunma Tarihi : <%= book.date_read %> - Derece : <%= book.rate %> / 10</h4>
+                <h3><%= book.review %></h3>
+                <div class="action_buttons">
+                    <button onclick="window.location='/edit/<%= book.id %>'">Düzenle</button>
+                    <button onclick="window.location='/delete/<%= book.id %>'">Sil</button>
+                </div>
+            </section>
+        <% }); %>
+    </div>
+<%- include('partials/footer.ejs') %>
